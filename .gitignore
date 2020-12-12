@@ -3,3 +3,35 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+
+#JetBrains Rider
+/.idea
+*.sln.iml
+
+# AppSettings
+appsettings.Development.json
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Dd]ist/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+**/Properties/launchSettings.json
