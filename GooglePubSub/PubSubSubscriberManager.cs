@@ -1,9 +1,7 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Google.Apis.Util;
 using Google.Cloud.PubSub.V1;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -12,30 +10,40 @@ namespace GooglePubSub
 {
     public class PubSubSubscriberManager : IHostedService
     {
-        private SubscriberClient _subscriber = null;
+        private List<ITopicMessageReceiver> _subscribers;
         private PubSubConfiguration _pubSubConfiguration;
+        private IInvokeMessageHandler _messageHandlerInvoker;
         
-        public PubSubSubscriberManager(IOptions<PubSubConfiguration> pubSubConfiguration )
+        public PubSubSubscriberManager(
+            IOptions<PubSubConfiguration> pubSubConfiguration,
+            IInvokeMessageHandler messageHandlerInvoker)
         {
-            pubSubConfiguration.ThrowIfNull(nameof(pubSubConfiguration));
             _pubSubConfiguration = pubSubConfiguration.Value;
+            _messageHandlerInvoker = messageHandlerInvoker;
+            _subscribers = new List<ITopicMessageReceiver>();
         }
         
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            var subscriptionName = SubscriptionName.FromProjectSubscription("unity-labs-createstudio-test", "emgee-sub");
-            _subscriber = await SubscriberClient.CreateAsync(subscriptionName);
-
-            await _subscriber.StartAsync((message, ct) =>
+            foreach (var subConfig in _pubSubConfiguration.Subscriptions)
             {
-                Console.WriteLine(Encoding.UTF8.GetString(message.Data.ToArray()));
-                return Task.FromResult(SubscriberClient.Reply.Nack);
-            });
+                var subscriber = await CreateTopicMessageReceiver(subConfig);
+                await subscriber.StartAsync(cancellationToken);
+                _subscribers.Add(subscriber);
+            }
         }
 
+        private async Task<ITopicMessageReceiver> CreateTopicMessageReceiver(SubscriptionConfiguration subConfig)
+        {
+            var subscriptionName = SubscriptionName.FromProjectSubscription(subConfig.ProjectId, subConfig.Id);
+            var subscriptionClient = await SubscriberClient.CreateAsync(subscriptionName);
+            return new TopicMessageReceiver(subscriptionClient, _messageHandlerInvoker);
+        }
+        
         public async Task StopAsync(CancellationToken cancellationToken)
         {
-            await _subscriber.StopAsync(cancellationToken);
+            var stopTasks = _subscribers.Select(s => s.StopAsync(CancellationToken.None));
+            await Task.WhenAll(stopTasks);
         }
     }
 }

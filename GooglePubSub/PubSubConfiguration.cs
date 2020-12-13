@@ -6,6 +6,7 @@ namespace GooglePubSub
     {
         // GCP Pub/Sub Subscription Id
         public string Id { get; set; }
+        public string ProjectId { get; set; }
     }
 
     public class PubSubConfiguration

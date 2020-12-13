@@ -18,4 +18,8 @@
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj" />
+    </ItemGroup>
+
 </Project>
