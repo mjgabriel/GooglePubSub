@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 namespace GooglePubSub
 {
     public class SubscriptionConfiguration
@@ -11,11 +9,6 @@ namespace GooglePubSub
 
     public class PubSubConfiguration
     {
-        public PubSubConfiguration()
-        {
-            
-        }
-        
         public bool IsMachineScoped { get; set; } = false;
 
         public SubscriptionConfiguration[] Subscriptions { get; set; }        

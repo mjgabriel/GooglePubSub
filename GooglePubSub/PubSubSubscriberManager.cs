@@ -10,7 +10,7 @@ namespace GooglePubSub
 {
     public class PubSubSubscriberManager : IHostedService
     {
-        private List<ITopicMessageReceiver> _subscribers;
+        private List<ITopicMessageReceiver> _allActiveMessageReceivers;
         private PubSubConfiguration _pubSubConfiguration;
         private IInvokeMessageHandler _messageHandlerInvoker;
         
@@ -20,16 +20,16 @@ namespace GooglePubSub
         {
             _pubSubConfiguration = pubSubConfiguration.Value;
             _messageHandlerInvoker = messageHandlerInvoker;
-            _subscribers = new List<ITopicMessageReceiver>();
+            _allActiveMessageReceivers = new List<ITopicMessageReceiver>();
         }
         
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             foreach (var subConfig in _pubSubConfiguration.Subscriptions)
             {
-                var subscriber = await CreateTopicMessageReceiver(subConfig);
-                await subscriber.StartAsync(cancellationToken);
-                _subscribers.Add(subscriber);
+                var messageReceiver = await CreateTopicMessageReceiver(subConfig);
+                await messageReceiver.StartAsync(cancellationToken);
+                _allActiveMessageReceivers.Add(messageReceiver);
             }
         }
 
@@ -42,7 +42,7 @@ namespace GooglePubSub
         
         public async Task StopAsync(CancellationToken cancellationToken)
         {
-            var stopTasks = _subscribers.Select(s => s.StopAsync(CancellationToken.None));
+            var stopTasks = _allActiveMessageReceivers.Select(s => s.StopAsync(cancellationToken));
             await Task.WhenAll(stopTasks);
         }
     }
