@@ -2,15 +2,19 @@ namespace GooglePubSub
 {
     public class SubscriptionConfiguration
     {
-        // GCP Pub/Sub Subscription Id
         public string Id { get; set; }
         public string ProjectId { get; set; }
     }
 
+    public class Topic
+    {
+        public string Id { get; set; }
+        public string ProjectId { get; set; }
+    }
+    
     public class PubSubConfiguration
     {
-        public bool IsMachineScoped { get; set; } = false;
-
         public SubscriptionConfiguration[] Subscriptions { get; set; }        
+        public Topic Topic { get; set; }
     }
 }

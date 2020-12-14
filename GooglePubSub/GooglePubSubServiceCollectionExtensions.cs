@@ -1,6 +1,7 @@
 using GooglePubSub;
 using GooglePubSub.MessageHandlers;
-using Unity.CreateDataService.V1;
+using GooglePubSub.Publisher;
+using PubSubSample.Events.V1;
 
 // Resharper disable CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
@@ -11,6 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             return services
                 .AddSingleton<IInvokeMessageHandler, MessageHandlerInvoker>()
+                .AddSingleton<IPublishMessage, TopicMessagePublisher>()
                 .AddSingleton<PubSubSubscriberManager>()
                 .AddScoped<IHandleMessages<FileUploadCompletedEvent>, FileUploadCompletedEventHandler>();
         }

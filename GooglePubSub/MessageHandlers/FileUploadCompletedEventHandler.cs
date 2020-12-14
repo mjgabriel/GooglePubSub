@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Unity.CreateDataService.V1;
+using PubSubSample.Events.V1;
 
 namespace GooglePubSub.MessageHandlers
 {

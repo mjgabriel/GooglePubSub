@@ -1,5 +1,5 @@
 // Resharper disable CheckNamespace
-namespace Unity.CreateDataService.V1
+namespace PubSubSample.Events.V1
 {
     public class FileUploadCompletedEvent
     {

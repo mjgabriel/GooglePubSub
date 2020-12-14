@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\GooglePubSub\GooglePubSub.csproj" />
+      <ProjectReference Include="..\WebApi.Contracts\WebApi.Contracts.csproj" />
     </ItemGroup>
 
 
