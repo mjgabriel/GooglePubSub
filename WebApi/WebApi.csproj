@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\GooglePubSub\GooglePubSub.csproj" />
+      <ProjectReference Include="..\Google.PubSub\Google.PubSub.csproj" />
       <ProjectReference Include="..\WebApi.Contracts\WebApi.Contracts.csproj" />
     </ItemGroup>
 

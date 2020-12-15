@@ -4,7 +4,7 @@ using Google.Cloud.PubSub.V1;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace GooglePubSub
+namespace Google.PubSub
 {
     public class MessageEnvelope
     {

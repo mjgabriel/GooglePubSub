@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GooglePubSub.Publisher
+namespace Google.PubSub.Publisher
 {
     public interface IPublishMessage
     {

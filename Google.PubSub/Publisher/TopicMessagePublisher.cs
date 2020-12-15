@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Google.Api.Gax.Grpc;
@@ -9,7 +8,7 @@ using Grpc.Core;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace GooglePubSub.Publisher
+namespace Google.PubSub.Publisher
 {
     public class TopicMessagePublisher : IPublishMessage
     {

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GooglePubSub
+namespace Google.PubSub
 {
     public class MessageHandlerInvoker : IInvokeMessageHandler
     {
@@ -31,7 +31,7 @@ namespace GooglePubSub
             }
 
         }
-        private static Type ResolveType(string typeNameString)
+        private static System.Type ResolveType(string typeNameString)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             return assemblies.Select(assembly => assembly.GetType(typeNameString))

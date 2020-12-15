@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using PubSubSample.Events.V1;
 
-namespace GooglePubSub.MessageHandlers
+namespace Google.PubSub.MessageHandlers
 {
     public class FileUploadCompletedEventHandler : MessageHandlerBase<FileUploadCompletedEvent>
     {

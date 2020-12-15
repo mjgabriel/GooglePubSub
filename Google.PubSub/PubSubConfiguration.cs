@@ -1,4 +1,4 @@
-namespace GooglePubSub
+namespace Google.PubSub
 {
     public class SubscriptionConfiguration
     {

@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Google.Cloud.PubSub.V1;
 
-namespace GooglePubSub
+namespace Google.PubSub
 {
     public class TopicMessageReceiver : ITopicMessageReceiver
     {

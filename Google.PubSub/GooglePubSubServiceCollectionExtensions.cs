@@ -1,6 +1,6 @@
-using GooglePubSub;
-using GooglePubSub.MessageHandlers;
-using GooglePubSub.Publisher;
+using Google.PubSub;
+using Google.PubSub.MessageHandlers;
+using Google.PubSub.Publisher;
 using PubSubSample.Events.V1;
 
 // Resharper disable CheckNamespace

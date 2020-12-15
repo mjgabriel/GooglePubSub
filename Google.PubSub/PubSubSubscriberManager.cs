@@ -6,7 +6,7 @@ using Google.Cloud.PubSub.V1;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
-namespace GooglePubSub
+namespace Google.PubSub
 {
     public class PubSubSubscriberManager : IHostedService
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using GooglePubSub.Publisher;
+using Google.PubSub.Publisher;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PubSubSample.Events.V1;

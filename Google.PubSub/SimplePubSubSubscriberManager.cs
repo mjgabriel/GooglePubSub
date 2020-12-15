@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Google.Cloud.PubSub.V1;
 using Microsoft.Extensions.Hosting;
 
-namespace GooglePubSub
+namespace Google.PubSub
 {
     public class SimplePubSubSubscriberManager : IHostedService
     {

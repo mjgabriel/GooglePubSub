@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{E05EAEE8-F9D8-44B5-A2F8-1814B363E86B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooglePubSub", "GooglePubSub\GooglePubSub.csproj", "{46A94521-29B4-4C6E-B1BB-436B0581B4D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.PubSub", "Google.PubSub\Google.PubSub.csproj", "{46A94521-29B4-4C6E-B1BB-436B0581B4D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Contracts", "Event.Contracts\Event.Contracts.csproj", "{846AA408-790F-47D4-9943-8E104287BAC0}"
 EndProject
