@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Google.Cloud.PubSub.V1;
+using Google.PubSub.Models;
 
 namespace Google.PubSub
 {

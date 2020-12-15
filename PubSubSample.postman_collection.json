@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "b2ff285c-b5fa-49c5-ade6-e793bd40cb09",
+		"name": "PubSubSample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"Url\": \"https://www.amazon.ca\"\n    },\n    {\n        \"Url\": \"https://www.memoryexpress.com\"\n    },\n    {\n        \"Url\": \"https://www.google.com\"\n    },\n    {\n        \"Url\": \"https://www.walmart.ca\"\n    },\n    {\n        \"Url\": \"https://www.bestbuy.ca\"\n    },\n    {\n        \"Url\": \"https://www.londondrugs.com\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/v1/upload",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"v1",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
