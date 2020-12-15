@@ -14,7 +14,7 @@ namespace GooglePubSub
             return new MessageEnvelope
             {
                 Body = JsonConvert.DeserializeObject<JObject>(messageBody),
-                MessageType = message.Attributes["MessageType"]
+                MessageType = message.Attributes["EventType"]
             };
         }
 

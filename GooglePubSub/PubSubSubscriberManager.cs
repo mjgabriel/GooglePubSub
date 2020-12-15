@@ -10,9 +10,9 @@ namespace GooglePubSub
 {
     public class PubSubSubscriberManager : IHostedService
     {
-        private List<ITopicMessageReceiver> _allActiveMessageReceivers;
-        private PubSubConfiguration _pubSubConfiguration;
-        private IInvokeMessageHandler _messageHandlerInvoker;
+        private readonly List<ITopicMessageReceiver> _allActiveMessageReceivers;
+        private readonly PubSubConfiguration _pubSubConfiguration;
+        private readonly IInvokeMessageHandler _messageHandlerInvoker;
         
         public PubSubSubscriberManager(
             IOptions<PubSubConfiguration> pubSubConfiguration,

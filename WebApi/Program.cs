@@ -20,7 +20,7 @@ namespace WebApi
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddHostedService<SimplePubSubSubscriberManager>();
+                    services.AddHostedService<PubSubSubscriberManager>();
                 });
     }
 }
